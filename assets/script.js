@@ -7,17 +7,17 @@ var symbols = "!$%&()-?@^"
 
 function generatePassword() {
     var password = "";
-    var passwordLength = prompt("How long do you want the password to be?", "ex. 8-128");
-    if (passwordLength < 8) {
+    var passwordLength = prompt("How long do you want the password to be?", "Must be 8-128");
+    if (passwordLength < "8") {
         passwordLength = prompt("Password length needs to be equal to or greater than 8.", "ex.8-128");
     }
-    else if (passwordLength > 128) {
+    else if (passwordLength > "128") {
         passwordLength = prompt("Password length needs to be equal to or less than 128");
     }
     var expectedCharacterTypes = ["lower case", "upper case", "numbers", "symbols"];
 
     var characterTypes = prompt("What character types would you like to include? (valid choices are upper case, lower case, numbers, symbols)", "upper case, lower case, numbers, symbols");
-    var characterTypeArray = characterTypes.split(", ");
+    characterTypeArray = characterTypes.split(", ");
     for (var i = 0; i < expectedCharacterTypes.length; i++) {
         if (characterTypeArray.includes(expectedCharacterTypes[i])) {
             break;
@@ -73,8 +73,8 @@ function generatePassword() {
                 password += symbols[indexToAccess];
             }
         } 
-        return password;
     }
+    return password;
 }
 // Write password to the #password input
 function writePassword() {
